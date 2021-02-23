@@ -52,6 +52,7 @@ class Skill(models.Model):
     """Model definition for Skill."""
 
     # TODO: Define fields here
+    titre = models.CharField(max_length=250, null=True)
     techno = models.ForeignKey(Techno, on_delete=models.CASCADE, related_name="skills")
     icon = models.FileField(upload_to="iconskill", null=True)
     
@@ -67,5 +68,5 @@ class Skill(models.Model):
 
     def __str__(self):
         """Unicode representation of Skill."""
-        return self.techno
+        return self.titre
 
