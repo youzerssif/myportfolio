@@ -12,7 +12,7 @@
     
         <!-- META KEYWORDS AND DESCRIPTION -->
         <!-- <meta name="keywords" content="HTML5 Template, one page template, leanding page, themeforest template, ckavart, ckav, template, multipurpose template" />
-        <meta name="description" content="Blon - Personal Portfolio Template">
+        <meta name="description|truncatewords:15" content="Blon - Personal Portfolio Template">
         <meta name="author" content="Samake"> -->
     
         <!-- META VIEW PORT -->
@@ -276,7 +276,7 @@
                                 <div class="section-heading-wrapper" data-ckav-smd="align-center">
                                     <h2 class="heading-section text-upper default bold-900 animated" data-anim-in="fadeInUp" data-ckav-smd="medium">About us</h2>
                                     <p class="heading-section-sub small margin-b-0 animated" data-anim-in="fadeInUp|0.1" data-ckav-smd="mini">
-                                        Je suis <strong class="color-text-default">{{ about.nom }}</strong> {{ about.description }} 
+                                        Je suis <strong class="color-text-default">{{ about.nom }}</strong> {{ about.description|truncatewords:15 }} 
                                     </p>
                                 </div>
                                 <hr class="color-border-default margin-tb-30 width-px-50 margin-l-0 border-t-2 animated" data-anim-in="fadeInUp|0.2" data-ckav-smd="margin-auto">
@@ -362,8 +362,8 @@
                                 <div class="counter-box info-obj center img-t align-center gap-30 small padding-30 glass-light-01 radius-4" data-ckav-sm="mini width-80 margin-auto">
                                     <div class="img"><span class="iconwrp text-default"><i class="icon-pencil"></i></span></div>
                                     <div class="info">
-                                        <h2 class="heading-content margin-0"><span class="count">{{ article.count }}</span></h2>
-                                        <p class="margin-0">Articles Published</p>
+                                        <h2 class="heading-content margin-0"><span class="count">{{ articles.count }}</span></h2>
+                                        <p class="margin-0">Articles Publiés</p>
                                     </div>
                                 </div>
                             </div>
@@ -406,94 +406,29 @@
                         data-carousel-center="false">
                             <div class="owl-carousel">
                                 
-                                <!-- ITEM -->
-                                <div class="item">
-                                    <div class="inneritem">
+                                {% for article in articles %}
+                                    <!-- ITEM -->
+                                    <div class="item">
+                                        <div class="inneritem">
 
-                                        <div class="image-infobox image-infobox-01 space-default medium align-left color-border-default radius-4 animated fadeInUp" data-animate="fadeInUp|0.2">
-                                            <div class="image flex-bc typo-light align-center" data-bg-image="{% static 'images/700x500-01.jpg' %}">
-                                                <div class="image-content">
-                                                    <h3 class="imgbox-title heading-content mini bold-700 text-upper">Speed Developement</h3>
+                                            <div class="image-infobox image-infobox-01 space-default medium align-left color-border-default radius-4 animated fadeInUp" data-animate="fadeInUp|0.2">
+                                                <div class="image flex-bc typo-light align-center" data-bg-image="{% static 'images/700x500-01.jpg' %}">
+                                                    <div class="image-content">
+                                                        <h3 class="imgbox-title heading-content mini bold-700 text-upper">{{ article.titre }}</h3>
+                                                    </div>
+                                                    <div class="image-overlay" data-bg-color="rgba(0,0,0,0.5)" style="background-color: rgba(0, 0, 0, 0.5);"></div>
                                                 </div>
-                                                <div class="image-overlay" data-bg-color="rgba(0,0,0,0.5)" style="background-color: rgba(0, 0, 0, 0.5);"></div>
-                                            </div>
-                                            <div class="text bgcolor-white shadow-01 align-center">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis in expedita deleniti non illum ad necessitatibus minima voluptatibus repellendus corporis, velit tempore blanditiis similique, sit?
-                                                </p>
-                                                <a href="#blog-01" class="set-popup button color-button-default button-mini solid radius-10">Read More</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!-- ITEM -->
-                                <div class="item">
-                                    <div class="inneritem">
-
-                                        <div class="image-infobox image-infobox-01 space-default medium align-left color-border-default radius-4 animated fadeInUp" data-animate="fadeInUp|0.2">
-                                            <div class="image flex-bc typo-light align-center" data-bg-image="{% static 'images/700x500-02.jpg' %}">
-                                                <div class="image-content">
-                                                    <h3 class="imgbox-title heading-content mini bold-700 text-upper">Sharp Design</h3>
+                                                <div class="text bgcolor-white shadow-01 align-center">
+                                                    <p>
+                                                        {{ article.description|truncatewords:15 }}
+                                                    </p>
+                                                    <a href="#blog-{{ article.id }}" class="set-popup button color-button-default button-mini solid radius-10">Lire Plus</a>
                                                 </div>
-                                                <div class="image-overlay" data-bg-color="rgba(0,0,0,0.5)" style="background-color: rgba(0, 0, 0, 0.5);"></div>
                                             </div>
-                                            <div class="text bgcolor-white shadow-01 align-center">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis in expedita deleniti non illum ad necessitatibus minima voluptatibus repellendus corporis, velit tempore blanditiis similique, sit?
-                                                </p>
-                                                <a href="#blog-02" class="set-popup button color-button-default button-mini solid radius-10">Read More</a>
-                                            </div>
+
                                         </div>
-
                                     </div>
-                                </div>
-
-                                <!-- ITEM -->
-                                <div class="item">
-                                    <div class="inneritem">
-
-                                        <div class="image-infobox image-infobox-01 space-default medium align-left color-border-default radius-4 animated fadeInUp" data-animate="fadeInUp|0.2">
-                                            <div class="image flex-bc typo-light align-center" data-bg-image="{% static 'images/700x500-03.jpg' %}">
-                                                <div class="image-content">
-                                                    <h3 class="imgbox-title heading-content mini bold-700 text-upper">Quick Support</h3>
-                                                </div>
-                                                <div class="image-overlay" data-bg-color="rgba(0,0,0,0.5)" style="background-color: rgba(0, 0, 0, 0.5);"></div>
-                                            </div>
-                                            <div class="text bgcolor-white shadow-01 align-center">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis in expedita deleniti non illum ad necessitatibus minima voluptatibus repellendus corporis, velit tempore blanditiis similique, sit?
-                                                </p>
-                                                <a href="#blog-03" class="set-popup button color-button-default button-mini solid radius-10">Read More</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!-- ITEM -->
-                                <div class="item">
-                                    <div class="inneritem">
-
-                                        <div class="image-infobox image-infobox-01 space-default medium align-left color-border-default radius-4 animated fadeInUp" data-animate="fadeInUp|0.2">
-                                            <div class="image flex-bc typo-light align-center" data-bg-image="{% static 'images/700x500-04.jpg' %}">
-                                                <div class="image-content">
-                                                    <h3 class="imgbox-title heading-content mini bold-700 text-upper">Regular Update</h3>
-                                                </div>
-                                                <div class="image-overlay" data-bg-color="rgba(0,0,0,0.5)" style="background-color: rgba(0, 0, 0, 0.5);"></div>
-                                            </div>
-                                            <div class="text bgcolor-white shadow-01 align-center">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis in expedita deleniti non illum ad necessitatibus minima voluptatibus repellendus corporis, velit tempore blanditiis similique, sit?
-                                                </p>
-                                                <a href="#blog-04" class="set-popup button color-button-default button-mini solid radius-10">Read More</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
+                                {% endfor %}
                             </div>
                         </div>
 
@@ -911,195 +846,43 @@
         * BLOG SINGLE
         *************************************************************
         -->
-        <div id="blog-01" class="white-popup-block single-blog popup-content animate fadeInDown mfp-hide radius-6">
-            <div class="pop-header padding-b-0 position-rel height-px-500" data-ckav-sm="padding-30 padding-b-0">
-                <div class="bg-holder zindex-0">
         
-                    <!-- OVERLAY -->
-                    <b data-bgholder="overlay" class="full-wh zindex-2" data-linear-gradient="rgba(0,0,0, 0)|rgba(0,0,0, 0.5)"></b>
-                    
-                    <!-- BACKGROUND IMAGE -->
-                    <b data-bgholder="background-image" class="full-wh bg-cover bg-tc zindex-1" data-bg-image="{% static 'images/blog-bg-01.jpg' %}"></b>
-                    
-                </div>
-            </div>
-            <div class="pop-body padding-tb-60" data-ckav-sm="padding-30 padding-t-30">
-                
-                <div class="container align-left">
-                    <div class="section-heading-wrapper margin-auto" data-ckav-smd="width-100">
-                        <p class="color-text-default bold-600">January 22, 2018 -- <span>LOGOS</span></p>
-                        <h2 class="heading-section text-upper small bold-600" data-ckav-smd="small">Speed Developement is key</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ab ipsum consequatur, reiciendis id ad nisi, voluptates aliquid, ex tenetur deleniti! Asperiores, assumenda. Suscipit magnam laboriosam pariatur quo facilis voluptatem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quisquam magni architecto sint, a quia dolor eaque ex quasi asperiores officiis quae facilis ipsa aperiam necessitatibus corporis, repellendus est sequi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus non officia amet, atque deserunt voluptatibus tempora laboriosam doloribus sequi totam dicta veniam excepturi quo libero laudantium itaque tempore magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis ipsum reprehenderit perferendis dicta aut sint, consectetur reiciendis corporis modi illo eaque officia provident doloribus. Quod quisquam distinctio totam repellat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores tempora adipisci, quisquam sunt saepe dignissimos dolorum velit officia ipsa error doloremque dicta fugit quidem earum ullam dolor possimus voluptatum fuga. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore magni cumque aut nisi. Architecto cum temporibus porro praesentium maxime adipisci necessitatibus quia modi, esse eum saepe, asperiores, corporis doloribus optio!</p>
-
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ab ipsum consequatur, reiciendis id ad nisi, voluptates aliquid, ex tenetur deleniti! Asperiores, assumenda. Suscipit magnam laboriosam pariatur quo facilis voluptatem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quisquam magni architecto sint, a quia dolor eaque ex quasi asperiores officiis quae facilis ipsa aperiam necessitatibus corporis, repellendus est sequi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus non officia amet, atque deserunt voluptatibus tempora laboriosam doloribus sequi totam dicta veniam excepturi quo libero laudantium itaque tempore magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis ipsum reprehenderit perferendis dicta aut sint, consectetur reiciendis corporis modi illo eaque officia provident doloribus. Quod quisquam distinctio totam repellat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores tempora adipisci, quisquam sunt saepe dignissimos dolorum velit officia ipsa error doloremque dicta fugit quidem earum ullam dolor possimus voluptatum fuga. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore magni cumque aut nisi. Architecto cum temporibus porro praesentium maxime adipisci necessitatibus quia modi, esse eum saepe, asperiores, corporis doloribus optio!</p>
+        {% for article in articles %}
+            <div id="blog-{{ article.id }}" class="white-popup-block single-blog popup-content animate fadeInDown mfp-hide radius-6">
+                <div class="pop-header padding-b-0 position-rel height-px-500" data-ckav-sm="padding-30 padding-b-0">
+                    <div class="bg-holder zindex-0">
+            
+                        <!-- OVERLAY -->
+                        <b data-bgholder="overlay" class="full-wh zindex-2" data-linear-gradient="rgba(0,0,0, 0)|rgba(0,0,0, 0.5)"></b>
+                        
+                        <!-- BACKGROUND IMAGE -->
+                        <b data-bgholder="background-image" class="full-wh bg-cover bg-tc zindex-1" data-bg-image="{% static 'images/blog-bg-01.jpg' %}"></b>
+                        
                     </div>
-
-                    <div class="social-section margin-t-30">
-                        <div>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-dribbble"></i></a>
+                </div>
+                <div class="pop-body padding-tb-60" data-ckav-sm="padding-30 padding-t-30">
+                    
+                    <div class="container align-left">
+                        <div class="section-heading-wrapper margin-auto" data-ckav-smd="width-100">
+                            <p class="color-text-default bold-600">January 22, 2018 -- <span>LOGOS</span></p>
+                            <h2 class="heading-section text-upper small bold-600" data-ckav-smd="small">{{ article.titre }}</h2>
+                            {{ article.description }}
                         </div>
-                    </div>
 
-                </div>
-                
-            </div>
-        </div>
-
-
-        <div id="blog-02" class="white-popup-block single-blog popup-content animate fadeInDown mfp-hide radius-6">
-            <div class="pop-header padding-b-0 position-rel height-px-500" data-ckav-sm="padding-30 padding-b-0">
-                <div class="bg-holder zindex-0">
-        
-                    <!-- OVERLAY -->
-                    <b data-bgholder="overlay" class="full-wh zindex-2" data-linear-gradient="rgba(0,0,0, 0)|rgba(0,0,0, 0.5)"></b>
-                    
-                    <!-- BACKGROUND IMAGE -->
-                    <b data-bgholder="background-image" class="full-wh bg-cover bg-tc zindex-1" data-bg-image="{% static 'images/blog-bg-02.jpg' %}"></b>
-                    
-                </div>
-            </div>
-            <div class="pop-body padding-tb-60" data-ckav-sm="padding-30 padding-t-30">
-                
-                <div class="container align-left">
-                    <div class="section-heading-wrapper margin-auto" data-ckav-smd="width-100">
-                        <p class="color-text-default bold-600">January 22, 2018 -- <span>LOGOS</span></p>
-                        <h2 class="heading-section text-upper small bold-600" data-ckav-smd="small">Sharp design is create more attraction</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ab ipsum consequatur, reiciendis id ad nisi, voluptates aliquid, ex tenetur deleniti! Asperiores, assumenda. Suscipit magnam laboriosam pariatur quo facilis voluptatem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quisquam magni architecto sint, a quia dolor eaque ex quasi asperiores officiis quae facilis ipsa aperiam necessitatibus corporis, repellendus est sequi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus non officia amet, atque deserunt voluptatibus tempora laboriosam doloribus sequi totam dicta veniam excepturi quo libero laudantium itaque tempore magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis ipsum reprehenderit perferendis dicta aut sint, consectetur reiciendis corporis modi illo eaque officia provident doloribus. Quod quisquam distinctio totam repellat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores tempora adipisci, quisquam sunt saepe dignissimos dolorum velit officia ipsa error doloremque dicta fugit quidem earum ullam dolor possimus voluptatum fuga. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore magni cumque aut nisi. Architecto cum temporibus porro praesentium maxime adipisci necessitatibus quia modi, esse eum saepe, asperiores, corporis doloribus optio!</p>
-
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ab ipsum consequatur, reiciendis id ad nisi, voluptates aliquid, ex tenetur deleniti! Asperiores, assumenda. Suscipit magnam laboriosam pariatur quo facilis voluptatem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quisquam magni architecto sint, a quia dolor eaque ex quasi asperiores officiis quae facilis ipsa aperiam necessitatibus corporis, repellendus est sequi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus non officia amet, atque deserunt voluptatibus tempora laboriosam doloribus sequi totam dicta veniam excepturi quo libero laudantium itaque tempore magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis ipsum reprehenderit perferendis dicta aut sint, consectetur reiciendis corporis modi illo eaque officia provident doloribus. Quod quisquam distinctio totam repellat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores tempora adipisci, quisquam sunt saepe dignissimos dolorum velit officia ipsa error doloremque dicta fugit quidem earum ullam dolor possimus voluptatum fuga. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore magni cumque aut nisi. Architecto cum temporibus porro praesentium maxime adipisci necessitatibus quia modi, esse eum saepe, asperiores, corporis doloribus optio!</p>
-                    </div>
-
-                    <div class="social-section margin-t-30">
-                        <div>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-dribbble"></i></a>
+                        <div class="social-section margin-t-30">
+                            <div>
+                                <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-dribbble"></i></a>
+                            </div>
                         </div>
+
                     </div>
-
-                </div>
-                
-            </div>
-        </div>
-
-
-        <div id="blog-03" class="white-popup-block single-blog popup-content animate fadeInDown mfp-hide radius-6">
-            <div class="pop-header padding-b-0 position-rel height-px-500" data-ckav-sm="padding-30 padding-b-0">
-                <div class="bg-holder zindex-0">
-        
-                    <!-- OVERLAY -->
-                    <b data-bgholder="overlay" class="full-wh zindex-2" data-linear-gradient="rgba(0,0,0, 0)|rgba(0,0,0, 0.5)"></b>
-                    
-                    <!-- BACKGROUND IMAGE -->
-                    <b data-bgholder="background-image" class="full-wh bg-cover bg-tc zindex-1" data-bg-image="{% static 'images/blog-bg-03.jpg' %}"></b>
                     
                 </div>
             </div>
-            <div class="pop-body padding-tb-60" data-ckav-sm="padding-30 padding-t-30">
-                
-                <div class="container align-left">
-                    <div class="section-heading-wrapper margin-auto" data-ckav-smd="width-100">
-                        <p class="color-text-default bold-600">January 22, 2018 -- <span>LOGOS</span></p>
-                        <h2 class="heading-section text-upper small bold-600" data-ckav-smd="small">After support is most important services</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ab ipsum consequatur, reiciendis id ad nisi, voluptates aliquid, ex tenetur deleniti! Asperiores, assumenda. Suscipit magnam laboriosam pariatur quo facilis voluptatem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quisquam magni architecto sint, a quia dolor eaque ex quasi asperiores officiis quae facilis ipsa aperiam necessitatibus corporis, repellendus est sequi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus non officia amet, atque deserunt voluptatibus tempora laboriosam doloribus sequi totam dicta veniam excepturi quo libero laudantium itaque tempore magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis ipsum reprehenderit perferendis dicta aut sint, consectetur reiciendis corporis modi illo eaque officia provident doloribus. Quod quisquam distinctio totam repellat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores tempora adipisci, quisquam sunt saepe dignissimos dolorum velit officia ipsa error doloremque dicta fugit quidem earum ullam dolor possimus voluptatum fuga. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore magni cumque aut nisi. Architecto cum temporibus porro praesentium maxime adipisci necessitatibus quia modi, esse eum saepe, asperiores, corporis doloribus optio!</p>
-
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ab ipsum consequatur, reiciendis id ad nisi, voluptates aliquid, ex tenetur deleniti! Asperiores, assumenda. Suscipit magnam laboriosam pariatur quo facilis voluptatem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quisquam magni architecto sint, a quia dolor eaque ex quasi asperiores officiis quae facilis ipsa aperiam necessitatibus corporis, repellendus est sequi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus non officia amet, atque deserunt voluptatibus tempora laboriosam doloribus sequi totam dicta veniam excepturi quo libero laudantium itaque tempore magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis ipsum reprehenderit perferendis dicta aut sint, consectetur reiciendis corporis modi illo eaque officia provident doloribus. Quod quisquam distinctio totam repellat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores tempora adipisci, quisquam sunt saepe dignissimos dolorum velit officia ipsa error doloremque dicta fugit quidem earum ullam dolor possimus voluptatum fuga. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore magni cumque aut nisi. Architecto cum temporibus porro praesentium maxime adipisci necessitatibus quia modi, esse eum saepe, asperiores, corporis doloribus optio!</p>
-                    </div>
-
-                    <div class="social-section margin-t-30">
-                        <div>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-dribbble"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-        </div>
-
-
-
-        <div id="blog-04" class="white-popup-block single-blog popup-content animate fadeInDown mfp-hide radius-6">
-            <div class="pop-header padding-b-0 position-rel height-px-500" data-ckav-sm="padding-30 padding-b-0">
-                <div class="bg-holder zindex-0">
-        
-                    <!-- OVERLAY -->
-                    <b data-bgholder="overlay" class="full-wh zindex-2" data-linear-gradient="rgba(0,0,0, 0)|rgba(0,0,0, 0.5)"></b>
-                    
-                    <!-- BACKGROUND IMAGE -->
-                    <b data-bgholder="background-image" class="full-wh bg-cover bg-tc zindex-1" data-bg-image="{% static 'images/blog-bg-04.jpg' %}"></b>
-                    
-                </div>
-            </div>
-            <div class="pop-body padding-tb-60" data-ckav-sm="padding-30 padding-t-30">
-                
-                <div class="container align-left">
-                    <div class="section-heading-wrapper margin-auto" data-ckav-smd="width-100">
-                        <p class="color-text-default bold-600">January 22, 2018 -- <span>LOGOS</span></p>
-                        <h2 class="heading-section text-upper small bold-600" data-ckav-smd="small">Get regular update</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ab ipsum consequatur, reiciendis id ad nisi, voluptates aliquid, ex tenetur deleniti! Asperiores, assumenda. Suscipit magnam laboriosam pariatur quo facilis voluptatem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quisquam magni architecto sint, a quia dolor eaque ex quasi asperiores officiis quae facilis ipsa aperiam necessitatibus corporis, repellendus est sequi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus non officia amet, atque deserunt voluptatibus tempora laboriosam doloribus sequi totam dicta veniam excepturi quo libero laudantium itaque tempore magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis ipsum reprehenderit perferendis dicta aut sint, consectetur reiciendis corporis modi illo eaque officia provident doloribus. Quod quisquam distinctio totam repellat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores tempora adipisci, quisquam sunt saepe dignissimos dolorum velit officia ipsa error doloremque dicta fugit quidem earum ullam dolor possimus voluptatum fuga. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore magni cumque aut nisi. Architecto cum temporibus porro praesentium maxime adipisci necessitatibus quia modi, esse eum saepe, asperiores, corporis doloribus optio!</p>
-
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ab ipsum consequatur, reiciendis id ad nisi, voluptates aliquid, ex tenetur deleniti! Asperiores, assumenda. Suscipit magnam laboriosam pariatur quo facilis voluptatem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quisquam magni architecto sint, a quia dolor eaque ex quasi asperiores officiis quae facilis ipsa aperiam necessitatibus corporis, repellendus est sequi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus non officia amet, atque deserunt voluptatibus tempora laboriosam doloribus sequi totam dicta veniam excepturi quo libero laudantium itaque tempore magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis ipsum reprehenderit perferendis dicta aut sint, consectetur reiciendis corporis modi illo eaque officia provident doloribus. Quod quisquam distinctio totam repellat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores tempora adipisci, quisquam sunt saepe dignissimos dolorum velit officia ipsa error doloremque dicta fugit quidem earum ullam dolor possimus voluptatum fuga. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore magni cumque aut nisi. Architecto cum temporibus porro praesentium maxime adipisci necessitatibus quia modi, esse eum saepe, asperiores, corporis doloribus optio!</p>
-                    </div>
-
-                    <div class="social-section margin-t-30">
-                        <div>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-dribbble"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-        </div>
-
-
-        <div id="blog-05" class="white-popup-block single-blog popup-content animate fadeInDown mfp-hide radius-6">
-            <div class="pop-header padding-b-0 position-rel height-px-500" data-ckav-sm="padding-30 padding-b-0">
-                <div class="bg-holder zindex-0">
-        
-                    <!-- OVERLAY -->
-                    <b data-bgholder="overlay" class="full-wh zindex-2" data-linear-gradient="rgba(0,0,0, 0)|rgba(0,0,0, 0.5)"></b>
-                    
-                    <!-- BACKGROUND IMAGE -->
-                    <b data-bgholder="background-image" class="full-wh bg-cover bg-tc zindex-1" data-bg-image="{% static 'images/bg-01.jpg' %}"></b>
-                    
-                </div>
-            </div>
-            <div class="pop-body padding-tb-60" data-ckav-sm="padding-30 padding-t-30">
-                
-                <div class="container align-left">
-                    <div class="section-heading-wrapper margin-auto" data-ckav-smd="width-100">
-                        <p class="color-text-default bold-600">January 22, 2018 -- <span>LOGOS</span></p>
-                        <h2 class="heading-section text-upper small bold-600" data-ckav-smd="small">Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ab ipsum consequatur, reiciendis id ad nisi, voluptates aliquid, ex tenetur deleniti! Asperiores, assumenda. Suscipit magnam laboriosam pariatur quo facilis voluptatem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quisquam magni architecto sint, a quia dolor eaque ex quasi asperiores officiis quae facilis ipsa aperiam necessitatibus corporis, repellendus est sequi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus non officia amet, atque deserunt voluptatibus tempora laboriosam doloribus sequi totam dicta veniam excepturi quo libero laudantium itaque tempore magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis ipsum reprehenderit perferendis dicta aut sint, consectetur reiciendis corporis modi illo eaque officia provident doloribus. Quod quisquam distinctio totam repellat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores tempora adipisci, quisquam sunt saepe dignissimos dolorum velit officia ipsa error doloremque dicta fugit quidem earum ullam dolor possimus voluptatum fuga. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore magni cumque aut nisi. Architecto cum temporibus porro praesentium maxime adipisci necessitatibus quia modi, esse eum saepe, asperiores, corporis doloribus optio!</p>
-
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ab ipsum consequatur, reiciendis id ad nisi, voluptates aliquid, ex tenetur deleniti! Asperiores, assumenda. Suscipit magnam laboriosam pariatur quo facilis voluptatem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quisquam magni architecto sint, a quia dolor eaque ex quasi asperiores officiis quae facilis ipsa aperiam necessitatibus corporis, repellendus est sequi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus non officia amet, atque deserunt voluptatibus tempora laboriosam doloribus sequi totam dicta veniam excepturi quo libero laudantium itaque tempore magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis ipsum reprehenderit perferendis dicta aut sint, consectetur reiciendis corporis modi illo eaque officia provident doloribus. Quod quisquam distinctio totam repellat? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores tempora adipisci, quisquam sunt saepe dignissimos dolorum velit officia ipsa error doloremque dicta fugit quidem earum ullam dolor possimus voluptatum fuga. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore magni cumque aut nisi. Architecto cum temporibus porro praesentium maxime adipisci necessitatibus quia modi, esse eum saepe, asperiores, corporis doloribus optio!</p>
-                    </div>
-
-                    <div class="social-section margin-t-30">
-                        <div>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="button button-icon radius-full margin-r-10 color-button-dark border-op-1"><i class="fab fa-dribbble"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-        </div>
+        {% endfor %}
         <!-- ************** END : BLOG SINGLE **************  -->
 
     </div>
