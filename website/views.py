@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-from myblog.models import models as blog
-from myrealisations.models import models as realisations
-from myservices.models import models as services
-from website.models import models as website
+from myblog.models import Article
+from myrealisations.models import Portfolio
+from myservices.models import Metier, Skill
+from website.models import Apropos, Statistique
 
 
 # Create your views here.
@@ -11,5 +11,23 @@ from website.models import models as website
 
 def home(request):
     
-    data={}
+    try:
+        
+        about = Apropos.objects.get(status=True)
+        metiers = Metier.objects.filter(status=True)
+        skills = Skill.objects.filter(status=True)
+        stats = Statistique.objects.get(status=True)
+        articles = Article.objects.filter(status=True)
+        
+    except Exception as e:
+        print("except", str(e))
+    
+
+    data={
+        'about':about,
+        'metiers':metiers,
+        'skills':skills,
+        'stats':stats,
+        'articles':articles,
+    }
     return render(request ,'home.html', data)

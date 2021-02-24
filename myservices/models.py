@@ -8,7 +8,7 @@ class Service(models.Model):
 
     # TODO: Define fields here
     titre = models.CharField(max_length=200, null=True)
-    icon = models.FileField(upload_to="iconservice", null=True)
+    # icon = models.FileField(upload_to="iconservice", null=True)
     description = models.TextField()
     
     date_add = models.DateTimeField(auto_now=False, auto_now_add=True)
@@ -26,8 +26,8 @@ class Service(models.Model):
         return self.titre
     
     
-class Techno(models.Model):
-    """Model definition for Techno."""
+class Metier(models.Model):
+    """Model definition for Metier."""
 
     # TODO: Define fields here
     titre = models.CharField(max_length=200, null=True)
@@ -37,13 +37,13 @@ class Techno(models.Model):
     status = models.BooleanField(default=True)
 
     class Meta:
-        """Meta definition for Techno."""
+        """Meta definition for Metier."""
 
-        verbose_name = 'Techno'
-        verbose_name_plural = 'Technos'
+        verbose_name = 'Metier'
+        verbose_name_plural = 'Metiers'
 
     def __str__(self):
-        """Unicode representation of Techno."""
+        """Unicode representation of Metier."""
         return self.titre
 
 
@@ -53,7 +53,8 @@ class Skill(models.Model):
 
     # TODO: Define fields here
     titre = models.CharField(max_length=250, null=True)
-    techno = models.ForeignKey(Techno, on_delete=models.CASCADE, related_name="skills")
+    metier = models.ManyToManyField(Metier, related_name="skills")
+    pourcentage = models.IntegerField(null=True)
     icon = models.FileField(upload_to="iconskill", null=True)
     
     date_add = models.DateTimeField(auto_now=False, auto_now_add=True)

@@ -95,7 +95,7 @@
                             <a href="#" class="logo-link display-iflex width-px-60 margin-r-10" data-ckav-smd="width-px-60">
                                 <img src="{% static 'images/logo-img-02.jpg' %}" alt="logo" class="radius-full border-3 color-border-white">
                             </a>
-                            <h1 class="heading small display-iflex margin-b-0">Samake Mohamed</h1>
+                            <h1 class="heading small display-iflex margin-b-0">{{ about.nom }}</h1>
                         </div>
 
                     </div>
@@ -183,22 +183,15 @@
                                 <div class="owl-carousel">
                                     
                                     <!-- ITEM -->
-                                    <div class="item">
-                                        <div class="inneritem">
-                                            <h2 class="heading xlarge bold-900 text-upper" data-ckav-smd="large">Je suis Data Scientist</h2>
+                                    
+                                    {% for metier in metiers %}
+                                        <div class="item">
+                                            <div class="inneritem">
+                                                <h2 class="heading xlarge bold-900 text-upper" data-ckav-smd="large">Je suis {{ metier.titre }}</h2>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- ITEM -->
-                                    <div class="item">
-                                        <div class="inneritem">
-                                            <h2 class="heading xlarge bold-900 text-upper" data-ckav-smd="large">Je suis Backend Developer</h2>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="inneritem">
-                                            <h2 class="heading xlarge bold-900 text-upper" data-ckav-smd="large">Je suis Entrepreneur</h2>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                        
 
                                 </div>
                             </div>
@@ -283,7 +276,7 @@
                                 <div class="section-heading-wrapper" data-ckav-smd="align-center">
                                     <h2 class="heading-section text-upper default bold-900 animated" data-anim-in="fadeInUp" data-ckav-smd="medium">About us</h2>
                                     <p class="heading-section-sub small margin-b-0 animated" data-anim-in="fadeInUp|0.1" data-ckav-smd="mini">
-                                        Je suis <strong class="color-text-default">Samake Mohamed</strong> Je suis développeur spécialiste Backend(python/Django) a NaN et je fais un parcours de master en Big data analystic a l'université virtuelle de côte d'ivoire. J'ai pour ambition d'associer mes connaissances en Big data analystic et ceux de Blockchain afin de résoudre différents problèmes de la société. 
+                                        Je suis <strong class="color-text-default">{{ about.nom }}</strong> {{ about.description }} 
                                     </p>
                                 </div>
                                 <hr class="color-border-default margin-tb-30 width-px-50 margin-l-0 border-t-2 animated" data-anim-in="fadeInUp|0.2" data-ckav-smd="margin-auto">
@@ -309,64 +302,28 @@
 
                         <div class="row gt60 align-items-center">
                             <div class="col-lg-5 align-right" data-ckav-smd="align-left margin-b-40">
-                                <a href="#" class="button color-button-default solid radius-10 small margin-lr-5 margin-tb-5">HTML</a>
-                                <a href="#" class="button color-button-default solid radius-10 small margin-lr-5 margin-tb-5">CSS</a>
-                                <a href="#" class="button color-button-default solid radius-10 small margin-lr-5 margin-tb-5">Adobe xd</a>
-                                <a href="#" class="button color-button-default solid radius-10 small margin-lr-5 margin-tb-5">Python</a>
-                                <a href="#" class="button color-button-default solid radius-10 small margin-lr-5 margin-tb-5">WordPress</a>
-                                <a href="#" class="button color-button-default solid radius-10 small margin-lr-5 margin-tb-5">JavaScript</a>
-                                <a href="#" class="button color-button-default solid radius-10 small margin-lr-5 margin-tb-5">Management</a>
-                                <a href="#" class="button color-button-default solid radius-10 small margin-lr-5 margin-tb-5">LeaderShip</a>
+                                
+                                {% for skill in skills %}
+                                <a href="#" class="button color-button-default solid radius-10 small margin-lr-5 margin-tb-5">{{ skill.titre}}</a>
+                                {% endfor %}
                             </div>
 
                             <div class="col-lg-7">
-                                <div class="skills-info skills-info-01 margin-b-40 animated fadeInUp" data-animate="fadeInUp|0.1">
-                                    <h3 class="skills-name heading-content mini margin-b-10">Pyth</h3>
-                                    <div class="skills-bar glass-light-02">
-                                        <div class="skills-progress width-80">
-                                            <div class="skills-per bgcolor-default flex-cc">
-                                                <span class="numbers">80%</span>
-                                                <span class="icon color-text-default"><i class="fas fa-sort-down"></i></span>
+                                
+                                {% for skill in skills %}
+                                    <div class="skills-info skills-info-01 margin-b-40 animated fadeInUp" data-animate="fadeInUp|0.1">
+                                        <h3 class="skills-name heading-content mini margin-b-10">{{ skill.titre }}</h3>
+                                        <div class="skills-bar glass-light-02">
+                                            <div class="skills-progress width-{{ skill.pourcentage }}">
+                                                <div class="skills-per bgcolor-default flex-cc">
+                                                    <span class="numbers">{{ skill.pourcentage }}%</span>
+                                                    <span class="icon color-text-default"><i class="fas fa-sort-down"></i></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="skills-info skills-info-01 margin-b-40 animated fadeInUp" data-animate="fadeInUp|0.1">
-                                    <h3 class="skills-name heading-content mini margin-b-10">OpenCart</h3>
-                                    <div class="skills-bar glass-light-02">
-                                        <div class="skills-progress width-70">
-                                            <div class="skills-per bgcolor-default flex-cc">
-                                                <span class="numbers">70%</span>
-                                                <span class="icon color-text-default"><i class="fas fa-sort-down"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="skills-info skills-info-01 margin-b-40 animated fadeInUp" data-animate="fadeInUp|0.1">
-                                    <h3 class="skills-name heading-content mini margin-b-10">HTML</h3>
-                                    <div class="skills-bar glass-light-02">
-                                        <div class="skills-progress width-90">
-                                            <div class="skills-per bgcolor-default flex-cc">
-                                                <span class="numbers">90%</span>
-                                                <span class="icon color-text-default"><i class="fas fa-sort-down"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="skills-info skills-info-01 margin-b-40 animated fadeInUp" data-animate="fadeInUp|0.1">
-                                    <h3 class="skills-name heading-content mini margin-b-10">CSS</h3>
-                                    <div class="skills-bar glass-light-02">
-                                        <div class="skills-progress width-90">
-                                            <div class="skills-per bgcolor-default flex-cc">
-                                                <span class="numbers">90%</span>
-                                                <span class="icon color-text-default"><i class="fas fa-sort-down"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
+                                    
                             </div>
                         </div>
 
@@ -375,7 +332,7 @@
                                 <div class="counter-box info-obj center img-t align-center gap-30 small padding-30 glass-light-01 radius-4" data-ckav-sm="mini width-80 margin-auto">
                                     <div class="img"><span class="iconwrp text-default"><i class="icon-profile-male"></i></span></div>
                                     <div class="info">
-                                        <h2 class="heading-content margin-0" data-ckav-smd="default"><span class="count">2140</span></h2>
+                                        <h2 class="heading-content margin-0" data-ckav-smd="default"><span class="count">{{ stats.client_heureux }}</span></h2>
                                         <p class="margin-0">Happy Clients</p>
                                     </div>
                                 </div>
@@ -385,7 +342,7 @@
                                 <div class="counter-box info-obj center img-t align-center gap-30 small padding-30 glass-light-01 radius-4" data-ckav-sm="mini width-80 margin-auto">
                                     <div class="img"><span class="iconwrp text-default"><i class="icon-layers"></i></span></div>
                                     <div class="info">
-                                        <h2 class="heading-content margin-0"><span class="count">2140</span></h2>
+                                        <h2 class="heading-content margin-0"><span class="count">{{ stats.projet_realises }}</span></h2>
                                         <p class="margin-0">Project Completed</p>
                                     </div>
                                 </div>
@@ -395,7 +352,7 @@
                                 <div class="counter-box info-obj center img-t align-center gap-30 small padding-30 glass-light-01 radius-4" data-ckav-sm="mini width-80 margin-auto">
                                     <div class="img"><span class="iconwrp text-default"><i class="icon-alarmclock"></i></span></div>
                                     <div class="info">
-                                        <h2 class="heading-content margin-0"><span class="count">2140</span></h2>
+                                        <h2 class="heading-content margin-0"><span class="count">{{ stats.heures_works }}</span></h2>
                                         <p class="margin-0">Hour Worked</p>
                                     </div>
                                 </div>
@@ -405,7 +362,7 @@
                                 <div class="counter-box info-obj center img-t align-center gap-30 small padding-30 glass-light-01 radius-4" data-ckav-sm="mini width-80 margin-auto">
                                     <div class="img"><span class="iconwrp text-default"><i class="icon-pencil"></i></span></div>
                                     <div class="info">
-                                        <h2 class="heading-content margin-0"><span class="count">2140</span></h2>
+                                        <h2 class="heading-content margin-0"><span class="count">{{ article.count }}</span></h2>
                                         <p class="margin-0">Articles Published</p>
                                     </div>
                                 </div>
