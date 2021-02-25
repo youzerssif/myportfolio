@@ -135,7 +135,6 @@ if os.environ.get('ENV') == 'PRODUCTION':
     
     # Static files settings
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-    # MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
 
     # Extra places for collectstatic to find static files.
     STATICFILES_DIRS = (
