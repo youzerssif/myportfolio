@@ -274,14 +274,14 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="section-heading-wrapper" data-ckav-smd="align-center">
-                                    <h2 class="heading-section text-upper default bold-900 animated" data-anim-in="fadeInUp" data-ckav-smd="medium">About us</h2>
+                                    <h2 class="heading-section text-upper default bold-900 animated" data-anim-in="fadeInUp" data-ckav-smd="medium">A propos de moi</h2>
                                     <p class="heading-section-sub small margin-b-0 animated" data-anim-in="fadeInUp|0.1" data-ckav-smd="mini">
                                         Je suis <strong class="color-text-default">{{ about.nom }}</strong> {{ about.description }} 
                                     </p>
                                 </div>
                                 <hr class="color-border-default margin-tb-30 width-px-50 margin-l-0 border-t-2 animated" data-anim-in="fadeInUp|0.2" data-ckav-smd="margin-auto">
                                 <p class="margin-b-20 animated" data-anim-in="fadeInUp|0.2">
-                                    Ici parler de mon freelancing
+                                    Ici parler de mes activités
                                 </p>
                                 
                             </div>
@@ -290,7 +290,7 @@
                         <div class="row padding-t-100">
                             <div class="col-md-12">
                                 <div class="section-heading-wrapper align-center width-70 margin-auto" data-ckav-smd="align-center width-100">
-                                    <h2 class="heading-section text-upper default bold-900 animated" data-anim-in="fadeInUp" data-ckav-smd="medium">Skill Area</h2>
+                                    <h2 class="heading-section text-upper default bold-900 animated" data-anim-in="fadeInUp" data-ckav-smd="medium">Mes Skills</h2>
                                     <p class="heading-section-sub small margin-b-0 animated" data-anim-in="fadeInUp|0.1" data-ckav-smd="mini">
                                         Lorem amet consectetur adipisicing elit. Et, quaerat architecto iusto uaerat architecto iusto nostrum dignissimos consectetur sit corrupti quos sed. 
                                     </p>
@@ -333,7 +333,7 @@
                                     <div class="img"><span class="iconwrp text-default"><i class="icon-profile-male"></i></span></div>
                                     <div class="info">
                                         <h2 class="heading-content margin-0" data-ckav-smd="default"><span class="count">{{ stats.client_heureux }}</span></h2>
-                                        <p class="margin-0">Happy Clients</p>
+                                        <p class="margin-0">Clients Heureux</p>
                                     </div>
                                 </div>
                             </div>
@@ -343,7 +343,7 @@
                                     <div class="img"><span class="iconwrp text-default"><i class="icon-layers"></i></span></div>
                                     <div class="info">
                                         <h2 class="heading-content margin-0"><span class="count">{{ stats.projet_realises }}</span></h2>
-                                        <p class="margin-0">Project Completed</p>
+                                        <p class="margin-0">Projets Réalisés</p>
                                     </div>
                                 </div>
                             </div>
@@ -353,7 +353,7 @@
                                     <div class="img"><span class="iconwrp text-default"><i class="icon-alarmclock"></i></span></div>
                                     <div class="info">
                                         <h2 class="heading-content margin-0"><span class="count">{{ stats.heures_works }}</span></h2>
-                                        <p class="margin-0">Hour Worked</p>
+                                        <p class="margin-0">Heures de Travail</p>
                                     </div>
                                 </div>
                             </div>
@@ -389,7 +389,7 @@
                     <div class="container">
                         
                         <div class="section-heading-wrapper align-center margin-b-60 width-px-700 margin-auto typo-light" data-ckav-smd="width-100">
-                            <h2 class="heading-section text-upper default bold-900 animated" data-anim-in="fadeInUp" data-ckav-smd="medium">Recent News</h2>
+                            <h2 class="heading-section text-upper default bold-900 animated" data-anim-in="fadeInUp" data-ckav-smd="medium">Recents articles </h2>
                             <p class="heading-section-sub small margin-b-0 animated" data-anim-in="fadeInUp|0.1" data-ckav-smd="mini">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, quaerat architecto iusto nostrum dignissimos consectetur sit corrupti quos sed. 
                             </p>
@@ -412,7 +412,7 @@
                                         <div class="inneritem">
 
                                             <div class="image-infobox image-infobox-01 space-default medium align-left color-border-default radius-4 animated fadeInUp" data-animate="fadeInUp|0.2">
-                                                <div class="image flex-bc typo-light align-center" data-bg-image="{% static 'images/700x500-01.jpg' %}">
+                                                <div class="image flex-bc typo-light align-center" data-bg-image="{{ article.image.url }}">
                                                     <div class="image-content">
                                                         <h3 class="imgbox-title heading-content mini bold-700 text-upper">{{ article.titre }}</h3>
                                                     </div>

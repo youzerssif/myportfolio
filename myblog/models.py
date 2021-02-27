@@ -20,6 +20,7 @@ class Article(models.Model):
 
         verbose_name = 'Article'
         verbose_name_plural = 'Articles'
+        ordering = ['-date_add']
 
     def __str__(self):
         """Unicode representation of Article."""
