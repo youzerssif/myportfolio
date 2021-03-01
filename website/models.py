@@ -17,6 +17,7 @@ class Apropos(models.Model):
     twitter = models.URLField(max_length=200, null=True, blank=True)
     linkedin = models.URLField(max_length=200, null=True, blank=True)
     instagram = models.URLField(max_length=200, null=True, blank=True)
+    googlemap = models.CharField(max_length=254, null=True)
     
     date_add = models.DateTimeField(auto_now=False, auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True, auto_now_add=False)
