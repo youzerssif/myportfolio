@@ -55,7 +55,7 @@ def sendNewsletter(request):
         print('$$$$$$$$$$$$$$$$', email)
         
         try:
-            if nom is not None and not nom.isspace() and email is not None and not email.isspace():
+            if nom !="" and not nom.isspace() and email !="" and not email.isspace():
                 newsletter = Newsletter(nom=nom, email=email)
                 print('OK OK OK OK ', newsletter)
                 # newsletter.save()
@@ -65,6 +65,7 @@ def sendNewsletter(request):
             else:
                 succes = False
                 message = "veillez bien renseigner les champs svp!"
+                print(message)
 
 
         except Exception as e:
@@ -99,7 +100,7 @@ def sendContact(request):
         print('$$$$$$$$$$$$$$$$', message)
         
         try:
-            if nom is not None and not nom.isspace() and email is not None and not email.isspace() and numero is not None and not numero.isspace() and sujet is not None and not sujet.isspace() and message is not None and not message.isspace():
+            if nom !="" and not nom.isspace() and email !="" and not email.isspace() and numero !="" and not numero.isspace() and sujet !="" and not sujet.isspace() and message !="" and not message.isspace():
                 contact = Contact(nom=nom, email=email, numero=numero, sujet=sujet, message=message)
                 print('OK OK OK OK ', contact)
                 # contact.save()
