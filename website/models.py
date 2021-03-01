@@ -12,6 +12,7 @@ class Apropos(models.Model):
     description = models.TextField()
     email = models.EmailField(max_length=254, null=True)
     numero = models.CharField(max_length=50, null=True)
+    lieu = models.CharField(max_length=50, null=True)
     facebook = models.URLField(max_length=200, null=True, blank=True)
     twitter = models.URLField(max_length=200, null=True, blank=True)
     linkedin = models.URLField(max_length=200, null=True, blank=True)
