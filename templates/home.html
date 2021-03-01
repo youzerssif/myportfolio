@@ -584,36 +584,36 @@
                                     <h2 class="heading-section text-upper default bold-900 animated" data-anim-in="fadeInRight|0.1" data-ckav-smd="medium margin-b-0">Drop us line</h2>
                                 </div>
                                 <hr class="color-border-default margin-tb-30 width-px-50 margin-l-0 border-t-2 animated" data-anim-in="fadeInRight|0.2" data-ckav-smd="margin-auto">
-                                <form action="form-data/formdata.php" class="form-widget form-control-op-light-02 animated" data-anim-in="fadeInRight|0.2" data-ckav-smd="align-center">
+                                <form action="#" class="form-widget form-control-op-light-02 animated" data-anim-in="fadeInRight|0.2" data-ckav-smd="align-center">
                                     <div class="field-wrp">
                                         <!-- <input type="hidden" name="to" value="c.kav.art@gmail.com"> -->
             
                                         <div class="row gt10">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input class="form-control radius-10" data-label="Name" required="" data-msg="Please enter name." type="text" name="name" placeholder="Enter your name">
+                                                    <input class="form-control radius-10" data-label="Name" required="" data-msg="Please enter name." type="text" v-model="nom" placeholder="Entrez votre nom">
                                                 </div>
                                             </div>
                                             
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input class="form-control radius-10" data-label="Email" required="" data-msg="Please enter email." type="email" name="email" placeholder="Enter your email">
+                                                    <input class="form-control radius-10" data-label="Email" required="" data-msg="Please enter email." type="email" v-model="email" placeholder="Entrez votre email">
                                                 </div>
                                             </div>
                                         </div>
                                         
                                         <div class="form-group">
-                                            <input class="form-control radius-10" required="" data-label="Phone" data-msg="Please phone number." type="text" name="phone" placeholder="Enter your phone number">
+                                            <input class="form-control radius-10" required="" data-label="Phone" data-msg="SVP entrez votre numero." type="text" v-model="numero" placeholder="Entrez votre numero">
                                         </div>
             
                                         <div class="form-group">
-                                            <input class="form-control radius-10" data-label="Subject" type="text" name="subject" placeholder="Enter subject">
+                                            <input class="form-control radius-10" data-label="Subject" type="text" v-model="sujet" placeholder="le sujet">
                                         </div>
                                         <div class="form-group">
-                                            <textarea class="form-control radius-10" data-label="Message" required="" data-msg="Please enter your message." name="message" placeholder="Add your message" cols="30" rows="6"></textarea>
+                                            <textarea class="form-control radius-10" data-label="Message" required="" data-msg="SVP Entrez votre message." v-model="message" placeholder="Entrez votre message" cols="30" rows="6"></textarea>
                                         </div>
                                     </div>
-                                    <button type="submit" class="button radius-10 solid color-button-default margin-0"><i class="fa fa-envelope-o"></i> SUBMIT</button>
+                                    <button v-on:click="sendContact" class="button radius-10 solid color-button-default margin-0"><i class="fa fa-envelope-o"></i> Envoyer</button>
                                 </form>
                             </div>
                         </div>
@@ -696,13 +696,13 @@
                             <div class="row gt10">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input class="form-control radius-6" data-label="Name" required="" data-msg="Please enter name." type="text" v-model="nomnews" placeholder="Entrer votre nom">
+                                        <input class="form-control radius-6" data-label="Name" required="" data-msg="Please enter name." type="text" v-model="nomnews" placeholder="Entrez votre nom">
                                     </div>
                                 </div>
                                 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input class="form-control radius-6" data-label="Email" required="" data-msg="Please enter email." type="email" v-model="emailnews" placeholder="Entrer votre email">
+                                        <input class="form-control radius-6" data-label="Email" required="" data-msg="Please enter email." type="email" v-model="emailnews" placeholder="Entrez votre email">
                                     </div>
                                 </div>
                             </div>
@@ -836,7 +836,7 @@
                     else {
                         this.error = true
                         Swal.fire({
-                            icon: 'success',
+                            icon: 'error',
                             title: `<b>${response.data.message}</b>`,
                             timer: 4000,
                         });
@@ -897,7 +897,11 @@
                     }
                     else {
                         this.error = true
-                        this.message = response.data.message
+                        Swal.fire({
+                            icon: 'error',
+                            title: `<b>${response.data.message}</b>`,
+                            timer: 4000,
+                        });
                     }
                     console.log(response.data)
                 })

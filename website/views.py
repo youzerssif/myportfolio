@@ -58,14 +58,14 @@ def sendNewsletter(request):
             if nom !="" and not nom.isspace() and email !="" and not email.isspace():
                 newsletter = Newsletter(nom=nom, email=email)
                 print('OK OK OK OK ', newsletter)
-                # newsletter.save()
+                newsletter.save()
                 
                 succes = True
                 message = "Merci de vous avoir abonné à ma newsletter"
             else:
                 succes = False
                 message = "veillez bien renseigner les champs svp!"
-                print(message)
+                # print(message)
 
 
         except Exception as e:
@@ -103,7 +103,7 @@ def sendContact(request):
             if nom !="" and not nom.isspace() and email !="" and not email.isspace() and numero !="" and not numero.isspace() and sujet !="" and not sujet.isspace() and message !="" and not message.isspace():
                 contact = Contact(nom=nom, email=email, numero=numero, sujet=sujet, message=message)
                 print('OK OK OK OK ', contact)
-                # contact.save()
+                contact.save()
                 
                 succes = True
                 message = "Votre messages a été envoyer avec succès"
