@@ -54,3 +54,50 @@ class Statistique(models.Model):
     # def __str__(self):
     #     """Unicode representation of Statistique."""
     #     pass
+
+
+class Newsletter(models.Model):
+    """Model definition for Newsletter."""
+
+    # TODO: Define fields here
+    nom = models.CharField(max_length=50, null=True)
+    email = models.EmailField(max_length=254, null=True)
+    
+    date_add = models.DateTimeField(auto_now=False, auto_now_add=True)
+    date_upd = models.DateTimeField(auto_now=True, auto_now_add=False)
+    status = models.BooleanField(default=True)
+
+    class Meta:
+        """Meta definition for Newsletter."""
+
+        verbose_name = 'Newsletter'
+        verbose_name_plural = 'Newsletters'
+
+    def __str__(self):
+        """Unicode representation of Newsletter."""
+        return self.nom
+
+
+class Contact(models.Model):
+    """Model definition for Contact."""
+
+    # TODO: Define fields here
+    nom = models.CharField(max_length=50, null=True)
+    numero = models.CharField(max_length=50, null=True)
+    sujet = models.CharField(max_length=50, null=True)
+    email = models.EmailField(max_length=254, null=True)
+    message = models.TextField()
+    
+    date_add = models.DateTimeField(auto_now=False, auto_now_add=True)
+    date_upd = models.DateTimeField(auto_now=True, auto_now_add=False)
+    status = models.BooleanField(default=True)
+
+    class Meta:
+        """Meta definition for Contact."""
+
+        verbose_name = 'Contact'
+        verbose_name_plural = 'Contacts'
+
+    def __str__(self):
+        """Unicode representation of Contact."""
+        return self.sujet
