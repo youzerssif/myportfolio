@@ -51,3 +51,45 @@ class StatistiqueAdmin(admin.ModelAdmin):
     list_per_page = 100
     date_hierarchy = ('date_add')
     list_display_links = ('client_heureux',)
+
+
+@admin.register(models.Newsletter)
+class NewsletterAdmin(admin.ModelAdmin):
+    list_display = ('nom','email', 'date_add', 'date_upd', 'status',)
+    list_filter = ('date_add', 'date_upd', 'status',)
+    search_field = ('nom','email',)
+    actions = ('active', 'desactive') 
+    def active(self, request, queryset):
+        queryset.update(status = True)
+        self.message_user(request, 'Activer une Newsletter')
+    active.short_description = 'active Newsletter'
+
+    def desactive(self, request, queryset):
+        queryset.update(status = False)
+        self.message_user(request, 'Desactiver une Newsletter')
+    desactive.short_description = 'desactive Newsletter'
+    ordering = ('nom','email',)
+    list_per_page = 100
+    date_hierarchy = ('date_add')
+    list_display_links = ('nom',)
+    
+    
+@admin.register(models.Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('nom','email','numero', 'date_add', 'date_upd', 'status',)
+    list_filter = ('date_add', 'date_upd', 'status',)
+    search_field = ('nom','email','numero')
+    actions = ('active', 'desactive') 
+    def active(self, request, queryset):
+        queryset.update(status = True)
+        self.message_user(request, 'Activer une Contact')
+    active.short_description = 'active Contact'
+
+    def desactive(self, request, queryset):
+        queryset.update(status = False)
+        self.message_user(request, 'Desactiver une Contact')
+    desactive.short_description = 'desactive Contact'
+    ordering = ('nom','email','numero')
+    list_per_page = 100
+    date_hierarchy = ('date_add')
+    list_display_links = ('nom',)
