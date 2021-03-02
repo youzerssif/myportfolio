@@ -8,6 +8,9 @@ from website.models import Apropos, Statistique, Newsletter, Contact
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+
 
 
 # Create your views here.
@@ -50,18 +53,30 @@ def sendNewsletter(request):
 
     if request.method == 'POST':
         nom = request.POST.get('nom')
-        print('$$$$$$$$$$$$$$$$', nom)
+        # print('$$$$$$$$$$$$$$$$', nom)
         email = request.POST.get('email')
-        print('$$$$$$$$$$$$$$$$', email)
+        # print('$$$$$$$$$$$$$$$$', email)
+        
+        try:
+            validate_email( email )
+            is_email = True
+        except ValidationError:
+            is_email = False
         
         try:
             if nom !="" and not nom.isspace() and email !="" and not email.isspace():
-                newsletter = Newsletter(nom=nom, email=email)
-                print('OK OK OK OK ', newsletter)
-                newsletter.save()
-                
-                succes = True
-                message = "Merci de vous avoir abonné à ma newsletter"
+                if is_email:
+                    
+                    newsletter = Newsletter(nom=nom, email=email)
+                    # print('OK OK OK OK ', newsletter)
+                    newsletter.save()
+                    
+                    succes = True
+                    message = "Merci de vous avoir abonné à ma newsletter"
+                else:
+                    succes = False
+                    message = "Verifier votre email"
+                    
             else:
                 succes = False
                 message = "veillez bien renseigner les champs svp!"
@@ -89,24 +104,36 @@ def sendContact(request):
 
     if request.method == 'POST':
         nom = request.POST.get('nom')
-        print('$$$$$$$$$$$$$$$$', nom)
+        # print('$$$$$$$$$$$$$$$$', nom)
         email = request.POST.get('email')
-        print('$$$$$$$$$$$$$$$$', email)
+        # print('$$$$$$$$$$$$$$$$', email)
         numero = request.POST.get('numero')
-        print('$$$$$$$$$$$$$$$$', numero)
+        # print('$$$$$$$$$$$$$$$$', numero)
         sujet = request.POST.get('sujet')
-        print('$$$$$$$$$$$$$$$$', sujet)
+        # print('$$$$$$$$$$$$$$$$', sujet)
         message = request.POST.get('message')
-        print('$$$$$$$$$$$$$$$$', message)
+        # print('$$$$$$$$$$$$$$$$', message)
         
         try:
+            validate_email( email )
+            is_email = True
+        except ValidationError:
+            is_email = False
+            
+        try:
             if nom !="" and not nom.isspace() and email !="" and not email.isspace() and numero !="" and not numero.isspace() and sujet !="" and not sujet.isspace() and message !="" and not message.isspace():
-                contact = Contact(nom=nom, email=email, numero=numero, sujet=sujet, message=message)
-                print('OK OK OK OK ', contact)
-                contact.save()
                 
-                succes = True
-                message = "Votre messages a été envoyer avec succès"
+                if is_email:
+                    contact = Contact(nom=nom, email=email, numero=numero, sujet=sujet, message=message)
+                    # print('OK OK OK OK ', contact)
+                    contact.save()
+                    
+                    succes = True
+                    message = "Votre messages a été envoyer avec succès"
+                
+                else:
+                    succes = False
+                    message = "Verifier votre email"
             else:
                 succes = False
                 message = "veillez bien renseigner les champs svp!"
