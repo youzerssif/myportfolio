@@ -143,7 +143,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
     
     # Static files settings
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+    
     # Extra places for collectstatic to find static files.
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
@@ -155,8 +155,8 @@ if os.environ.get('ENV') == 'PRODUCTION':
     DATABASES['default'].update(db_from_env)
 else:
     STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, '../static_cdn')
-    MEDIA_URL = '/media/' 
-    MEDIA_ROOT = os.path.join(BASE_DIR, '../media_cdn')
+    STATIC_ROOT = os.path.join(BASE_DIR, '/static')
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
 
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
