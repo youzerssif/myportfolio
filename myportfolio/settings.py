@@ -26,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'yemnki-!8ms6l)^on&9wea6k00c33q_#8hqqudm^^1+n9zcf0+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('ENV') == 'PRODUCTION':
-    DEBUG = False
-else:
-    DEBUG = True
+# if os.environ.get('ENV') == 'PRODUCTION':
+#     DEBUG = False
+# else:
+DEBUG = True
 
 ALLOWED_HOSTS = ['samakemohamed.herokuapp.com','127.0.0.1']
 
