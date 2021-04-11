@@ -728,7 +728,7 @@
                         <b data-bgholder="overlay" class="full-wh zindex-2" data-linear-gradient="rgba(0,0,0, 0)|rgba(0,0,0, 0.5)"></b>
                         
                         <!-- BACKGROUND IMAGE -->
-                        <b data-bgholder="background-image" class="full-wh bg-cover bg-tc zindex-1" data-bg-image="{% static 'images/blog-bg-01.jpg' %}"></b>
+                        <b data-bgholder="background-image" class="full-wh bg-cover bg-tc zindex-1" data-bg-image="{{ article.image.url }}"></b>
                         
                     </div>
                 </div>
@@ -736,7 +736,7 @@
                     
                     <div class="container align-left">
                         <div class="section-heading-wrapper margin-auto" data-ckav-smd="width-100">
-                            <p class="color-text-default bold-600">January 22, 2018 -- <span>LOGOS</span></p>
+                            <p class="color-text-default bold-600">{{ article.date_add }} -- <span>LOGOS</span></p>
                             <h2 class="heading-section text-upper small bold-600" data-ckav-smd="small">{{ article.titre }}</h2>
                             {{ article.description }}
                         </div>
