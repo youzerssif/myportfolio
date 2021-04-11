@@ -146,9 +146,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
     import dj_database_url
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
-    
-    import django_heroku
-    django_heroku.settings(locals())
+
     
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -165,8 +163,8 @@ if os.environ.get('ENV') == 'PRODUCTION':
     
 else:
     STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, '/static')
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
