@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
@@ -8,7 +8,7 @@ class Apropos(models.Model):
 
     # TODO: Define fields here
     nom = models.CharField(max_length=200, null=True)
-    image = models.FileField(upload_to="monimage", null=True)
+    image = CloudinaryField('monimage')
     description = models.TextField()
     email = models.EmailField(max_length=254, null=True)
     numero = models.CharField(max_length=50, null=True)

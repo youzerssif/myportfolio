@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
@@ -8,7 +8,7 @@ class Article(models.Model):
 
     # TODO: Define fields here
     titre = models.CharField(max_length=200, null=True)
-    image = models.FileField(upload_to="imageblog", null=True)
+    image = CloudinaryField('imageblog')
     description = models.TextField()
     
     date_add = models.DateTimeField(auto_now=False, auto_now_add=True)

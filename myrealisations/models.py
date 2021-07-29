@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Portfolio(models.Model):
@@ -7,7 +7,7 @@ class Portfolio(models.Model):
 
     # TODO: Define fields here
     titre = models.CharField(max_length=200, null=True)
-    image = models.FileField(upload_to="imageportfolio", null=True)
+    image = CloudinaryField('imageportfolio')
     lien = models.URLField(max_length=255, null=True)
     description = models.TextField(null=True)
     

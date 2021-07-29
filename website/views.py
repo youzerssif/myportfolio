@@ -10,7 +10,9 @@ from django.http import JsonResponse
 import json
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 # Create your views here.

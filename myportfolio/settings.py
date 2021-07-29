@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'myrealisations',
     'myservices',
     'website',
+    'cloudinary',
     
 ]
 
@@ -141,6 +142,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+cloudinary.config(
+    cloud_name = "dlsfbkoom",
+    api_key = "216259653579422",
+    api_secret = "uoIkNEJQh5HfLEp7JlSgUR3PvTI",
+    secure = True,
+)
 
 if os.environ.get('ENV') == 'PRODUCTION':
     import dj_database_url
