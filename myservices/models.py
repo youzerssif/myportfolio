@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
@@ -55,7 +55,7 @@ class Skill(models.Model):
     titre = models.CharField(max_length=250, null=True)
     metier = models.ManyToManyField(Metier, related_name="skills")
     pourcentage = models.IntegerField(null=True)
-    icon = models.FileField(upload_to="iconskill", null=True)
+    icon = CloudinaryField('iconskill')
     
     date_add = models.DateTimeField(auto_now=False, auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True, auto_now_add=False)
